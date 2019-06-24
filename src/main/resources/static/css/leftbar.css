@@ -1,0 +1,56 @@
+
+.menu > a
+{
+    text-decoration: none;
+    color: #cccc;
+    transition: color 0.3s ease;
+}
+
+
+.menu > a:hover
+{
+    color: tomato;
+}
+
+
+#navi{
+
+    position: absolute;
+    width: 15vw;
+    margin: -100px 0 0 -50px;
+    padding-left: 50px;
+    padding-top: 125px;
+    height: 97.4vh;
+
+    background:#202831;
+    -webkit-font-smoothing: antialiased;
+    -webkit-user-select: none;
+    overflow-y : auto;
+
+
+
+}
+
+#navi ul{
+
+    transform: none;
+    margin-left : 5%;
+    margin-right : 5%;
+    padding : 5%;
+    padding-top : 2%;
+    list-style-type : none;
+
+
+
+}
+
+#navi li{
+
+    font-size: 18px;
+
+    font-weight: 300;
+    padding : 10px 0;
+    margin : 0;
+    line-height: 22px;
+
+}

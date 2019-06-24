@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/imageslider.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/rightbar.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/comment.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/leftbar.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/mainpage.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/movieinfo.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <title>한스마리</title>
+    <script
+            src="http://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+<div>
+    <div id="navi">
+        <nav>
+            <ul class="menu" style="margin-top : 1%;">
+                <a onclick="movie_detail_off()"><li>Home</li></a>
+
+            </ul>
+
+            <ul id="top10" class="menu">
+
+
+            </ul>
+        </nav>
+    </div>
+    <div id="page_Home">
+
+
+        <div id="main_information">
+            <div id="main_title">
+                <a>현재상영작</a>
+            </div>
+            <div id="now_in_theaters">
+
+
+
+            </div>
+            <div id="main_poster_page">
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div id="movie_information" >
+        <div id="mv_info1" >
+
+            <a id="big_img" target=_blank>
+                <img class="poster" id="movie_poster">
+            </a>
+
+            <div class="mv_subject">
+
+                <strong id="movie_title" style="display: block;font-size: 18px !important"></strong>
+
+                <div class="mv_sub_info">
+                    <div><span id="genre"></span> | <span id="country"></span></div>
+                    <div><span id="movie_startday"></span> 개봉</div>
+                    <div><span id="running_time"></span> | <span id="old"></span></div>
+
+                    <div class="mv_sub_info2">
+
+                        <span id="sub_info"></span>
+
+                    </div>
+
+                    <div class="mv_ranking">
+                        <div>예매 <span id="rank" style="color:red"></span> |
+                            관객 수 <span id="audience"></span></div>
+                    </div>
+                    <button title="Daum Moive로 이동" target="_blank" id="ticketbtn">예매하기</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="imageview">
+            <div id="image1">
+
+            </div>
+
+            <div id="image2">
+
+            </div>
+
+
+        </div>
+
+        <div class="actor">
+            <div id="actor1">
+
+            </div>
+            <div id="actor2">
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div id="comment">
+        <nav>
+
+            <div id="userbox">
+                <div id="login_btn" onclick="login()">로그인</div>
+                <div id="sign_up_btn" onclick="new_users()">회원가입</div>
+            </div>
+
+            <div id="comment_line"></div>
+
+            <div id="movie_comment_wrap">
+                <ul id="movie_comment">
+
+
+                </ul>
+            </div>
+            <div id="input_comment">
+                <input id="comment_input" placeholder="Type a message...">
+                <button id="comment_submit" onclick="addcomment()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </nav>
+    </div>
+
+    <!--Dialog View-->
+
+    <div id ="loginbox" style="display : none;">
+        <div id="login">
+            <div id="login_dialog" >
+
+                <div id="login_title">Login</div>
+
+                <div id="idandpw" >
+                    <input id="login_id_txt" placeholder="아이디">
+                    <input id="login_pw_txt" type="password" placeholder="비밀번호">
+                </div>
+
+                <div id="login_event_area">
+                    <button onclick="userlogin()">로그인</button>
+                    <button onclick="cancel_login()">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id ="new_user" style="display : none;">
+        <div id="signup">
+            <div id="signup_dialog">
+                <div id="signup_title">SignUp</div>
+
+                <div id="new_userinfo">
+                    <input id="n_user_id" placeholder="아이디">
+                    <input id="n_user_pw" type="password" placeholder="비밀번호">
+                    <input id="n_user_name" placeholder="이름">
+                </div>
+
+                <div id="signup_event">
+                    <button onclick="signup()">가입</button>
+                    <button onclick="cancel_users()">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

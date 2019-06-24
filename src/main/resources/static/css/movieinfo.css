@@ -1,0 +1,196 @@
+body
+{
+    margin: 0;
+    padding: 0;
+
+
+    /* make it look decent enough */
+
+    font-family: 'NanumSquare',sans-serif;
+
+}
+
+
+
+#movie_information{
+
+    width : 70vw;
+    height: 100vh;
+    margin-left: 15vw;
+    box-shadow: 10px 0 15px -10px inset #777777;
+    background:#ffffff;
+    overflow-y:auto;
+    font-family: AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    font-size: 14px;
+
+    display:none;
+
+
+
+
+}
+
+
+
+
+
+.actor{
+
+    position: fixed;
+    display:flex;
+    bottom:10%;
+    left : 18.5%;
+    width : 45vw;
+    height : 40vh;
+    background-color: white;
+
+    overflow-y: auto;
+}
+
+#actor1{
+
+    width : 50%;
+
+    height : auto;
+    border-right: 1px solid #e5e5e5;
+}
+
+#actor2{
+    width : 50%;
+
+
+    height : auto;
+}
+
+#person{
+
+    border-bottom : 2px solid #e5e5e5;
+    display:flex;
+    align-items: center;
+
+
+}
+
+#person_img{
+    margin-left : 10px;
+    padding : 10px;
+}
+
+#person_name{
+    padding : 10px;
+    color: #206de0;
+    font-weight: bold;
+}
+
+
+#person_job{
+    position: inherit;
+    right:0;
+    margin-right : 10px;
+    color: #989898;
+}
+
+.poster{ /*movie_detail에서의 poster*/
+
+    width : 12.3%;
+    height : 35.1%;
+    position: fixed;
+    left : 18.5vw;
+    top :5vh;
+
+}
+
+
+.mv_subject{ /*포스터 옆에 표시되는 세부정보*/
+
+    width : 100%;
+    color: rgb(42, 42, 42);
+    font-size: 14px;
+    position: fixed;
+    left : 32vw;
+    top : 5vh;
+}
+
+.mv_sub_info{/*세부정보의 설정*/
+    margin-top : 0.5%;
+    line-height: 180%;
+}
+
+.mv_sub_info2{/*영화 설명 안에 들어가는 것*/
+    margin-top : 0.5%;
+    border : 3px solid #E8D1DC;
+    width : 40vw;
+    padding : 0.7%;
+    height : 11vh;
+
+    overflow-y: auto;
+
+}
+
+.mv_ranking{
+    margin-top : 0.5%;
+    font-size: 16px;
+
+}
+
+#ticketbtn{
+    color: #fff;
+    background-color: #ff382e;
+    cursor: pointer;
+    font-family: AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    width: 5%;
+    height: 10%;
+    line-height: 35px;
+    margin-top : 0.6%;
+    border: 0;
+
+}
+
+#fav_movie{
+    visibility:hidden;
+    font-size:30px;
+    cursor:pointer;
+
+}
+#fav_movie:before {
+    content: "\2606";
+    position: absolute;
+    visibility:visible;
+}
+
+#fav_movie:checked:before {
+    content: "\2605";
+    color: #ff382e;
+    position: absolute;
+}
+
+
+
+
+
+
+/*scrollbar css*/
+
+::-webkit-scrollbar-track {
+    background-color: #b46868;
+} /* the new scrollbar will have a flat appearance with the set background color */
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+} /* this will style the thumb, ignoring the track */
+
+::-webkit-scrollbar-button {
+    background-color: #7c2929;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+
+::-webkit-scrollbar-corner {
+    background-color: #82D580aa;;
+} /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+
+
+
+

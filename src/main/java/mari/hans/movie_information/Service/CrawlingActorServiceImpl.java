@@ -31,18 +31,15 @@ public class CrawlingActorServiceImpl implements CrawlingActorService {
 
         String afteruniquen = uniquen.substring(idx+1);
 
-        //System.out.println(afteruniquen);
         return afteruniquen;
     }
 
-    public static List<MovieActor> movie_actor(Elements element, int number)throws IOException{
+    public static List<MovieActor> movie_actor(Elements element, int number)throws IOException{ //배우 가져오기
         String a_url = "https://movie.daum.net/moviedb/crew?movieId="+UniqueNumber_Parser(element, number);
         Document doc = Jsoup.connect(a_url).get();
 
         Elements actor_link = doc.select("li > a > span > img");
         Elements actor_job = doc.select("span.txt_awards > span");
-        Elements actor_name_link = doc.select("em");
-
 
         ArrayList<MovieActor> mals = new ArrayList<MovieActor>();
 
@@ -65,8 +62,6 @@ public class CrawlingActorServiceImpl implements CrawlingActorService {
 
             }
 
-
-
             MovieActor ma = new MovieActor(actor,actor_jobs,actor_img,UniqueNumber_Parser(element, number));
             mals.add(ma);
         }
@@ -77,8 +72,8 @@ public class CrawlingActorServiceImpl implements CrawlingActorService {
     }
 
     @Override
-    public List<MovieActor> actoradd() {
-        JSONArray movieArray = new JSONArray();
+    public List<MovieActor> actoradd() { //배우 추가
+
 
         for (int count = 1; count < 5; count++) {
 
@@ -93,9 +88,6 @@ public class CrawlingActorServiceImpl implements CrawlingActorService {
                 for (int i = 0; i < titles.size(); i++) {
 
 
-                    //detailinfo(titles,i);
-
-                    //movieArray.add(getJson(mv));
                     for (int j = 0; j < movie_actor(titles, i).size(); j++) {
                         movies_a.add(movie_actor(titles, i).get(j));
                     }
@@ -112,23 +104,23 @@ public class CrawlingActorServiceImpl implements CrawlingActorService {
         return  movieActorRepostiory.findAll();
     }
 
-    public void actormany(List<MovieActor> ls){
-
+    @Override
+    public Boolean actordelete() { //배우 삭제
+        try{
+            this.movieActorRepostiory.deleteAll();
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
+
     @Override
-    public List<MovieActor> actorsearch(String uid) {
-
-
+    public List<MovieActor> actorsearch(String uid) { //배우 검색
 
         return this.movieActorRepostiory.findByMovieunique(uid);
 
     }
-/*
-    @Override
-    public Optional<MovieActor> movie_actorsearch(String uniques, String role) {
-        Optional<MovieActor> mals = this.movieActorRepostiory.findByMovie_uniqueAndActor_role(uniques,role);
 
-        return mals;
-    }*/
 }

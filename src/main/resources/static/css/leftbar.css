@@ -1,5 +1,5 @@
 
-.menu > a
+.menu > a /*메뉴*/
 {
     text-decoration: none;
     color: #cccc;
@@ -7,13 +7,13 @@
 }
 
 
-.menu > a:hover
+.menu > a:hover /*메뉴 호버*/
 {
     color: tomato;
 }
 
 
-#navi{
+#navi{ /*left bar*/
 
     position: absolute;
     width: 15vw;
@@ -31,7 +31,7 @@
 
 }
 
-#navi ul{
+#navi ul{ /*left bar ul*/
 
     transform: none;
     margin-left : 5%;
@@ -44,7 +44,7 @@
 
 }
 
-#navi li{
+#navi li{/*left bar li*/
 
     font-size: 18px;
 

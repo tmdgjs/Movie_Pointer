@@ -32,7 +32,7 @@ public class CrawlingImageServiceImpl implements CrawlingImageService{
         return afteruniquen;
     }
 
-        public static MovieImage imageinfo(Elements element, int number,String title) throws IOException {
+        public static MovieImage imageinfo(Elements element, int number,String title) throws IOException { //이미지 가져오기
             try{
                 ArrayList<String> image_ls = new ArrayList<String>();
 
@@ -47,8 +47,6 @@ public class CrawlingImageServiceImpl implements CrawlingImageService{
                 Document doc2 = Jsoup.connect(images_url).get();
 
                 Elements image_tag = doc2.select("div.phslul > ul > li > a");
-
-                System.out.println(images_url);
 
                 for(int i = 0 ; i< 5 ; i++) {
                     try {
@@ -75,8 +73,8 @@ public class CrawlingImageServiceImpl implements CrawlingImageService{
 
 
     @Override
-    public List<MovieImage> imageadd() {
-        JSONArray movieArray = new JSONArray();
+    public List<MovieImage> imageadd() { //이미지 추가
+
 
         for (int count = 1; count < 5; count++) {
 
@@ -106,11 +104,22 @@ public class CrawlingImageServiceImpl implements CrawlingImageService{
     }
 
     @Override
-    public MovieImage imagesearch(String uid) {
+    public MovieImage imagesearch(String uid) { //이미지 검색
 
         Optional<MovieImage> imagels = this.movieImageRepository.findByMovieunique(uid);
         return imagels.get();
 
+    }
+
+    @Override
+    public Boolean imagedelete() { //이미지 삭제
+        try{
+            this.movieImageRepository.deleteAll();
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
 }

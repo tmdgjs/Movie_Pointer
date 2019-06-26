@@ -10,4 +10,6 @@ public interface CrawlingImageService {
 
     MovieImage imagesearch(String uid);
 
+    Boolean imagedelete();
+
 }

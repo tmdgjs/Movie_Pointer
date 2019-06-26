@@ -1,23 +1,19 @@
 package mari.hans.movie_information.Service;
 
 import mari.hans.movie_information.DAO.MovieRepository;
-import mari.hans.movie_information.Domain.MovieDetail;
+
 import mari.hans.movie_information.Domain.MovieInformation;
 
-import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import org.json.simple.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.text.DateFormat;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,7 +25,7 @@ import java.util.Optional;
 public class CrawlingServiceImpl implements CrawlingService {
 
     @Autowired
-    private MovieRepository movierepo;
+    private MovieRepository movieRepository;
 
     public static Date dayparse(String day) { //date 변환
         day = day.substring(0,8);
@@ -56,21 +52,9 @@ public class CrawlingServiceImpl implements CrawlingService {
         return afteruniquen;
     }
 
-    public static JSONObject getJson(MovieInformation mv) {
-        JSONObject jsonObject = new JSONObject();
-
-        jsonObject.put("title", mv.getMovie_name());
-        jsonObject.put("src", mv.getMovie_imagehref());
-        jsonObject.put("description", mv.getMovie_info());
-        jsonObject.put("day", mv.getMovie_startday());
-
-        return jsonObject;
-    }
-
 
     @Override
-    public List<MovieInformation> infoadd() {
-        JSONArray movieArray = new JSONArray();
+    public List<MovieInformation> infoadd() { //기본정보 추가
 
         for(int count = 1 ; count<5 ; count++){
             List<MovieInformation> movies = new ArrayList<>();
@@ -93,67 +77,45 @@ public class CrawlingServiceImpl implements CrawlingService {
                     String image = img.get(i).attr("abs:src");
                     String day = startday.get(i).text();
 
-                    String uniques = UniqueNumber_Parser(titles,i);
-
                     MovieInformation mv = new MovieInformation(title, des, image, dayparse(day),UniqueNumber_Parser(titles,i));
 
-
-
-                    System.out.print(mv);
                     movies.add(mv);
-
-
-
-
 
                 }
 
-                this.movierepo.saveAll(movies);
+                this.movieRepository.saveAll(movies);
 
             }
             catch(IOException e){
                 return null;
             }
         }
-
-
-        return this.movierepo.findAll();
+        return this.movieRepository.findAll();
     }
 
-    @Override
-    public List<MovieDetail> d_infoadd() {
-
-
-        return null;
-    }
 
     @Override
-    public MovieInformation infoSearch(Long id) {
-        Optional<MovieInformation> mvls = this.movierepo.findById(id);
+    public MovieInformation infoSearch(Long id) { //id 값으로 검색
+        MovieInformation mvls = this.movieRepository.findById(id).orElse(null);
 
-        return mvls.get();
+        return mvls;
 
     }
 
     @Override
-    public MovieInformation infoSearch1(String uid) {
-        Optional<MovieInformation> mvls = this.movierepo.findByMovieunique(uid);
+    public MovieInformation infouniqueSearch(String uid) { //영화 번호로 검색
+        Optional<MovieInformation> mvls = this.movieRepository.findByMovieunique(uid);
 
          return mvls.get();
 
-
-    }
-
-    @Override
-    public MovieInformation infoSearch_nametouniq(String name) {
-        return null;
     }
 
 
+
     @Override
-    public Boolean infodelete() {
+    public Boolean infodelete() { //기본정보 삭제
         try{
-            this.movierepo.deleteAll();
+            this.movieRepository.deleteAll();
             return true;
         }
         catch (Exception e){
@@ -163,6 +125,12 @@ public class CrawlingServiceImpl implements CrawlingService {
 
     @Override
     public Long infoCount() {
-        return this.movierepo.count();
+        return this.movieRepository.count();
+    } // 영화 갯수
+
+    @Override
+    public MovieInformation infoSearchfirstid() { //첫번째 영화 id
+        List<MovieInformation> mvls = this.movieRepository.findAll();
+        return mvls.get(0);
     }
 }

@@ -9,6 +9,7 @@ import mari.hans.movie_information.Service.CrawlingDetailService;
 import mari.hans.movie_information.Service.CrawlingImageService;
 import mari.hans.movie_information.Service.CrawlingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,77 +34,123 @@ public class MovieController {
     private CrawlingImageService crawlingImageService;
 
 
+    //scheduled
+    @Scheduled(cron = "0 0 10 * * *")
+    public void scheduleFixedRateTask() { // 매일 10시에 자동 실행
+
+        try{
+            movie_all_content_delete();
+        }
+        catch (Exception e){
+
+        }
+
+        movie_all_content_add();
+
+    }
+
+    //All content
+
+    @GetMapping("/movies/add")
+    public void movie_all_content_add(){
+        movie_infoadd();
+        movie_detailadd();
+        movie_actoradd();
+        movie_imageadd();
+    }
+
+    @DeleteMapping("/movies/delete")
+    public void movie_all_content_delete(){
+        movie_infodelete();
+        movie_detaildelete();
+        movie_actordelete();
+        movie_imagedelete();
+    }
+
     //info db
-    @GetMapping("/movie")
-    public List<MovieInformation> mv(){
+
+    @GetMapping("/movie/infoadd")
+    public List<MovieInformation> movie_infoadd(){
         return this.crawlingService.infoadd();
     }
 
-
-
-    @DeleteMapping("/movied")
-    public boolean mvde(){
+    @DeleteMapping("/movie/infodelete")
+    public boolean movie_infodelete(){
         return this.crawlingService.infodelete();
     }
 
+    //detail db
+
+    @GetMapping("/movie/detailadd")
+    public List<MovieDetail> movie_detailadd(){
+        return this.crawlingDetailService.detailadd();
+    }
+
+    @DeleteMapping("/movie/detaildelete")
+    public boolean movie_detaildelete(){
+        return this.crawlingDetailService.detaildelete();
+    }
+
+    //actor db
+
+    @GetMapping("/movie/actoradd")
+    public List<MovieActor> movie_actoradd() {return this.crawlingActorService.actoradd();}
+
+    @DeleteMapping("/movie/actordelete")
+    public boolean movie_actordelete(){
+        return this.crawlingActorService.actordelete();
+    }
+
+    //image db
+
+    @GetMapping("/movie/imageadd")
+    public List<MovieImage> movie_imageadd() {return this.crawlingImageService.imageadd();}
+
+    @DeleteMapping("/movie/imagedelete")
+    public boolean movie_imagedelete(){
+        return this.crawlingImageService.imagedelete();
+    }
+
+    //movie_unique_num search
+
+    @GetMapping("/movie/infosearch/{uid}")
+    public MovieInformation mvuniquesearch(@PathVariable String uid)
+    {
+        return this.crawlingService.infouniqueSearch(uid);
+    }
+
+    @GetMapping("/movie/deatilsearch/{uid}")
+    public MovieDetail mvdsearch(@PathVariable String uid) { return this.crawlingDetailService.detailSearch(uid);}
+
+    @GetMapping("/movie/imagesearch/{uid}")
+    public MovieImage mvimagesearch(@PathVariable String uid){
+        return this.crawlingImageService.imagesearch(uid) ;
+    }
+
+    @GetMapping("/movie/actorsearch/{uid}")
+    public List<MovieActor> mvactorsearch(@PathVariable String uid){
+        return this.crawlingActorService.actorsearch(uid);
+    }
 
     //id search
-    @GetMapping("/movies/{id}")
+
+    @GetMapping("/movie/{id}")
     public MovieInformation mvname(@PathVariable Long id) {
         return this.crawlingService.infoSearch(id);
     }
 
-    @GetMapping("/moviesall")
-    public void mvall(){
-        mv();
-        mvd();
-        mva();
-        mvi();
-    }
-
-    //detail db
-    @GetMapping("/moviedetail")
-    public List<MovieDetail> mvd(){
-        return this.crawlingDetailService.detailadd();
-    }
-
-    //actor db
-    @GetMapping("/moviea")
-    public List<MovieActor> mva() {return this.crawlingActorService.actoradd();}
-
-    @GetMapping("/moviei")
-    public List<MovieImage> mvi() {return this.crawlingImageService.imageadd();}
-
+    //전체 갯수
 
     @GetMapping("/movie/count")
     public Long moviecount(){
         return this.crawlingService.infoCount();
     }
-    /*@GetMapping("/movieactor/{uniques}/{role}")
-    public Optional<MovieActor> actorsearch(@PathVariable String uniques,@PathVariable String role){
-        return this.crawlingActorService.movie_actorsearch(uniques, role);
-    }*/
 
-    //detail search
-    @GetMapping("/movie/{uid}")
-    public MovieInformation mvuniquesearch(@PathVariable String uid)
-    {
-        return this.crawlingService.infoSearch1(uid);
+    // 첫번째 값
+
+    @GetMapping("/movie/fid")
+    public MovieInformation mvfirst(){
+        return this.crawlingService.infoSearchfirstid();
     }
-
-    @GetMapping("/movied/{uid}")
-    public MovieDetail mvdsearch(@PathVariable String uid) { return this.crawlingDetailService.detailSearch(uid);}
-
-    @GetMapping("/moviei/{uid}")
-    public MovieImage mvimagesearch(@PathVariable String uid){
-        return this.crawlingImageService.imagesearch(uid) ;
-    }
-
-    @GetMapping("/moviea/{uid}")
-    public List<MovieActor> mvactorsearch(@PathVariable String uid){
-        return this.crawlingActorService.actorsearch(uid);
-    }
-
-
 
 }

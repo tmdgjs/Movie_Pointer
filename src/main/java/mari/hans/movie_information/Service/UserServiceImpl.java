@@ -14,13 +14,13 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
     @Override
-    public User Login(String userid, String password) {
+    public User Login(String userid, String password) { //로그인
         Optional<User> loginuser =this.userRepository.findByUseridAndPassword(userid, password);
         return loginuser.orElseGet(null);
     }
 
     @Override
-    public User useradd(User user) {
+    public User useradd(User user) { //회원가입
         Optional<User> found =this.userRepository.findByUserid(user.getUserid());
         if(found.isPresent()) return null;
 

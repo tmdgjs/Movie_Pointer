@@ -16,18 +16,17 @@ public class CommentServiceImpl implements CommentService{
 
 
     @Override
-    public Comment addcomment(Comment comment) {
+    public Comment addcomment(Comment comment) { //코멘트 추가
 
         return this.commentRepository.save(comment);
 
     }
 
     @Override
-    public List<Comment> searchcomment(String uid) {
+    public List<Comment> searchcomment(String uid) { //코멘트 리스트
         List<Comment> mvls = this.commentRepository.findByMovieunique(uid);
 
         return mvls;
     }
-
 
 }

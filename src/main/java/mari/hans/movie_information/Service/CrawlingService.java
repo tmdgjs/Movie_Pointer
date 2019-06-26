@@ -9,16 +9,14 @@ public interface CrawlingService {
 
     List<MovieInformation> infoadd();
 
-    List<MovieDetail> d_infoadd();
-
     MovieInformation infoSearch(Long id);
 
-    MovieInformation infoSearch1(String uid);
-
-    MovieInformation infoSearch_nametouniq(String name);
+    MovieInformation infouniqueSearch(String uid);
 
     Boolean infodelete();
 
     Long infoCount();
+
+    MovieInformation infoSearchfirstid();
 
 }

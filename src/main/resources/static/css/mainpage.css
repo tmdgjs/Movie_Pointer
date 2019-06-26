@@ -1,4 +1,4 @@
-#main_information{
+#main_information{ /*메인 화면*/
     width : 70vw;
     height: 100vh;
     margin-left: 15vw;
@@ -15,7 +15,7 @@
 
 }
 
-#now_in_theaters{
+#now_in_theaters{ /*movie_poster wrap*/
 
 
     width : 50vw;
@@ -28,7 +28,7 @@
 
 }
 
-.main_poster_box{
+.main_poster_box{ /*각각의 포스터 박스(이름 + 포스터)*/
 
     margin : 5px 5px;
     border-bottom:2px solid #dedede;
@@ -40,7 +40,7 @@
     overflow-x: hidden;
 }
 
-.main_poster{
+.main_poster{ /*포스터*/
 
     width: 100%;
     height : 90%;
@@ -49,7 +49,7 @@
 
 }
 
-.main_poster_name{
+.main_poster_name{ /*타이틀*/
 
     position: absolute;
     bottom:6px;
@@ -61,11 +61,15 @@
     color: #231f20;
     font-weight: bold;
 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
 }
 
 
 
-#main_title{
+#main_title{ /*현재 상영작 div*/
     display: block;
     width: 175px;
     height: 50px;
@@ -80,7 +84,7 @@
 
 }
 
-#main_poster_page{
+#main_poster_page{ /*버튼 wrap*/
 
     margin-top : 15px;
     background:none;
@@ -88,7 +92,7 @@
 
 }
 
-.main_poster_page_btn{
+.main_poster_page_btn{ /*버튼*/
     background-color:#CDCFCE;
     border-radius: 5px;
     width:30px;

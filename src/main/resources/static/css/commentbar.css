@@ -1,0 +1,150 @@
+#comment{ /*우측 sidebar*/
+
+    /*padding-left: 50px;*/
+    padding-top: 125px;
+    margin: -100px 0 0 -50px;
+    position: absolute;
+    width: 15vw;
+    background:#202831;
+    height: 97.4vh;
+    right : 0;
+    top : 0;
+
+}
+
+#userbox{ /*로그인 + 회원가입 박스*/
+    padding-left : 12%;
+    margin-bottom : 5%;
+
+}
+
+#sign_up_btn{ /*회원가입 btn*/
+
+
+    display: flex;
+    align-items: center;
+    padding : 2% 0;
+    font-family: "Dotum", "Apple Gothic", sans-serif;
+    font-size: 12px;
+    color: #7C8891;
+    letter-spacing: -1px;
+    cursor : pointer;
+}
+
+#login_btn{ /*로그인 btn*/
+    display: flex;
+    align-items: center;
+    font-family: "Dotum", "Apple Gothic", sans-serif;
+    font-size: 12px;
+    color: #7C8891;
+    letter-spacing: -1px;
+    cursor : pointer;
+}
+
+
+
+
+#comment_line{/*hr*/
+    margin : 5% 0 ;
+
+    border : 1px solid #4EAAED
+
+
+}
+
+
+#movie_comment_wrap{ /*무비 코멘트*/
+    overflow-y: auto;
+
+
+    height : 78vh;
+
+    display:none;
+}
+
+
+#movie_comment{ /*코멘트 박스*/
+    padding: 0;
+    margin: 0;
+
+}
+
+#movie_comment_content{ /*코멘트 내용*/
+    width: 13vw;
+
+    list-style: none;
+    float : left;
+    margin : 0 5%;
+    font-size: 16px;
+    line-height: 1.5;
+    color:#4EAAED
+
+
+}
+
+
+#movie_comment_userid{ /*코멘트 작성자*/
+    float : left;
+    margin :3% 5%;
+    font-size: 15px;
+    font-weight: bold;
+    color:#4EAAED;
+    letter-spacing: -1px;
+
+}
+
+#input_comment{ /*input comment box*/
+    display : flex;
+    margin:0;
+    padding:0;
+    border-top : 2px solid #4EAAED;
+
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+
+    display:none;
+
+}
+
+#comment_input{ /*코멘트 입력 input*/
+    position: fixed;
+    bottom: 0;
+    float: left;
+
+    width: 10.5vw;
+    height: 5vh;
+    margin : 0 10px;
+    margin-bottom : 1%;
+
+    background: #F5F5F5;
+
+    padding: 1px 0px;
+    font-size: 15px;
+    border-radius: 6px;
+    border : 1px solid #F5F5F5;
+
+}
+
+#comment_submit{ /*코멘트 작성 btn*/
+
+
+    background-color:#F5F5F5;
+    border: none;
+    border-radius: 50%;
+    text-decoration: none;
+    text-align: center;
+    position: fixed;
+    bottom: 3px;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left : 4px;
+    margin-bottom: 1%;
+
+}

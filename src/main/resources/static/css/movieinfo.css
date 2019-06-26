@@ -3,14 +3,9 @@ body
     margin: 0;
     padding: 0;
 
-
-    /* make it look decent enough */
-
     font-family: 'NanumSquare',sans-serif;
 
 }
-
-
 
 #movie_information{
 
@@ -25,14 +20,7 @@ body
 
     display:none;
 
-
-
-
 }
-
-
-
-
 
 .actor{
 
@@ -57,7 +45,6 @@ body
 
 #actor2{
     width : 50%;
-
 
     height : auto;
 }
@@ -127,13 +114,13 @@ body
 
 }
 
-.mv_ranking{
+.mv_ranking{ /*랭킹*/
     margin-top : 0.5%;
     font-size: 16px;
 
 }
 
-#ticketbtn{
+#ticketbtn{ /*ticket btn css*/
     color: #fff;
     background-color: #ff382e;
     cursor: pointer;
@@ -149,29 +136,6 @@ body
     border: 0;
 
 }
-
-#fav_movie{
-    visibility:hidden;
-    font-size:30px;
-    cursor:pointer;
-
-}
-#fav_movie:before {
-    content: "\2606";
-    position: absolute;
-    visibility:visible;
-}
-
-#fav_movie:checked:before {
-    content: "\2605";
-    color: #ff382e;
-    position: absolute;
-}
-
-
-
-
-
 
 /*scrollbar css*/
 

@@ -31,7 +31,7 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
         return afteruniquen;
     }
 
-    public static String countryname(ArrayList<String> c_lst,String data[]) {
+    public static String countryname(ArrayList<String> c_lst,String data[]) { //도시 이름
 
         for(int i = 0; i <data.length;i++) { //country function
             if(data[i].contains(".")) {
@@ -65,7 +65,7 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
 
     }
 
-    public static String attendancenum(String title) throws IOException {
+    public static String attendancenum(String title) throws IOException { //관객수
         ArrayList<String> person = new ArrayList<String>();
 
         String urls = "https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&sug=&sugo=&q=영화 "+title;
@@ -78,53 +78,16 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
 
         String data[] = nums.split(" ");
 
-        //person.add(data[data.length-2]);
-
         if(data[0].equals("")){
             return "0명";
         }
-
-        //return data[data.length-2];
         return data[0] + "명";
 
     }
 
-    public static List<String> movie_image_zum_search(String title) throws IOException{
-
-        ArrayList<String> image_ls = new ArrayList<String>();
-
-        String urls = "http://search.zum.com/search.zum?method=uni&option=accu&rd=1&qm=f_typing.top&query=영화 "+title;
-
-        Document doc = Jsoup.connect(urls).get();
-
-        Elements image_url_tag = doc.select("li.preview > a");
-
-        String images_url = image_url_tag.get(1).attr("href");
-
-        Document doc2 = Jsoup.connect(images_url).get();
-
-        Elements image_tag = doc2.select("div.phslul > ul > li > a");
-
-        //System.out.println(image_tag);
-        try {
-            for(int i = 0 ; i< 5 ; i++) {
-
-                String image = image_tag.get(i).attr("data-image");
-                image_ls.add(image);
-            }
-        }
-        catch(IndexOutOfBoundsException e) {
-            System.out.println("이미지가 없습니다.");
-        }
-        return image_ls;
 
 
-
-    }
-
-
-    public static MovieDetail detailinfo(Elements element, int number) throws IOException {
-        JSONArray d_movieArray = new JSONArray();
+    public static MovieDetail detailinfo(Elements element, int number) throws IOException { //상세내용 가져오기
 
         ArrayList<String> detail_lst = new ArrayList<String>();
 
@@ -162,7 +125,6 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
                 detail_lst.add(data[i-1]);
 
                 MovieDetail md = new MovieDetail(detail_lst.get(1),detail_lst.get(0),countryname(country_lst,data),detail_lst.get(2),detail_lst.get(3),attendancenum(mtitle),UniqueNumber_Parser(element,number));
-                //System.out.println(title);
                 return md;
 
 
@@ -173,8 +135,8 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
     }
 
     @Override
-    public List<MovieDetail> detailadd() {
-        JSONArray movieArray = new JSONArray();
+    public List<MovieDetail> detailadd() { //상세내용 추가
+
         for (int count = 1; count < 5; count++) {
 
             List<MovieDetail> movies_d = new ArrayList<>();
@@ -189,9 +151,6 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
                 for (int i = 0; i < titles.size(); i++) {
 
 
-                    //detailinfo(titles,i);
-
-                    //movieArray.add(getJson(mv));
                     movies_d.add(detailinfo(titles, i));
                 }
 
@@ -206,7 +165,7 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
     }
 
     @Override
-    public MovieDetail detailSearch(String uid) {
+    public MovieDetail detailSearch(String uid) { //상세내용 검색
 
         Optional<MovieDetail> mvdls = this.movieDetailRepository.findByMovieunique(uid);
 
@@ -215,7 +174,13 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
     }
 
     @Override
-    public Boolean detaildelete() {
-        return null;
+    public Boolean detaildelete() { //상세내용 삭제
+        try{
+            this.movieDetailRepository.deleteAll();
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 }

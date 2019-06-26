@@ -1,0 +1,111 @@
+#signup{ /*회원가입 다이얼로그*/
+    display : flex ;
+    justify-content: center;
+    align-items:center;
+    position:fixed;
+    width: 100vw;
+    height : 100vh;
+    left:0;
+    font-family: 'NanumSquare',sans-serif;
+    top : 0;
+    background-color: #e5e5e599;
+}
+
+#signup_dialog{ /*회원가입 다이얼로그 박스*/
+    text-align : center ;
+    background-color:white;
+    padding : 0 30px;
+    border: none;
+
+}
+
+#signup_title{ /*제목*/
+    margin : 30px 0;
+    font-weight: bold;
+    color : black;;
+    font-size : 17px;
+}
+
+#new_userinfo > input{ /*input css*/
+    display : block;
+    height: 39px;
+    margin-top: -2px;
+    border: 1px solid #ccc;
+
+    ime-mode: inactive;
+    line-height: 39px;
+}
+
+#signup_event{ /*회원가입 버튼 wrap*/
+    margin : 30px 0;
+}
+
+#signup_event button{ /*회원가입 버튼 css*/
+    position: relative;
+    width: 48%;
+    height: 40px;
+    background-color: ghostwhite;
+    border: 2px solid #D5D5D5;
+    vertical-align: top;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+#login{ /*로그인 다이얼로그*/
+    display : flex ;
+    justify-content: center;
+    font-family: 'NanumSquare',sans-serif;
+    align-items:center;
+    position:fixed;
+    width: 100vw;
+    height : 100vh;
+    left:0;
+    top : 0;
+    background-color : #e5e5e599;
+}
+
+#login_dialog{ /*로그인 다이얼로그 box*/
+
+    text-align : center ;
+    background-color:white;
+    padding : 0 30px;
+
+
+}
+
+#login_title{ /*로그인 title*/
+
+    margin : 30px 0;
+    font-weight: bold;
+    color : black;;
+    font-size : 17px;
+
+}
+
+#idandpw > input { /*input css*/
+    display : block;
+    height: 39px;
+    margin-top: -2px;
+    border: 1px solid #ccc;
+
+    ime-mode: inactive;
+    line-height: 39px;
+}
+
+#login_event_area{ /*로그인 버튼 wrap*/
+    margin : 30px 0;
+}
+
+#login_event_area button{ /*로그인 버튼 css*/
+
+    position: relative;
+    width: 48%;
+    height: 40px;
+    background-color: ghostwhite;
+    border: 2px solid #D5D5D5;
+    vertical-align: top;
+    cursor: pointer;
+    font-weight: 900;
+
+}
+

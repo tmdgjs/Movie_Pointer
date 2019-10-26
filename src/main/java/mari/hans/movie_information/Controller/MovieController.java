@@ -35,16 +35,17 @@ public class MovieController {
 
 
     //scheduled
-    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(cron = "0 0 * * * *")
     public void scheduleFixedRateTask() { // 매일 10시에 자동 실행
 
         try{
             movie_all_content_delete();
+
         }
         catch (Exception e){
 
         }
-
+        System.out.println("try ok");
         movie_all_content_add();
 
     }

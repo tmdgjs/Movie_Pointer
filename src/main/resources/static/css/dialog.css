@@ -6,9 +6,9 @@
     width: 100vw;
     height : 100vh;
     left:0;
-    font-family: 'NanumSquare',sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
     top : 0;
-    background-color: #e5e5e599;
+    background-color: #00000099;
 }
 
 #signup_dialog{ /*회원가입 다이얼로그 박스*/
@@ -16,39 +16,78 @@
     background-color:white;
     padding : 0 30px;
     border: none;
-
+    width : 30vw;
+    height : 50vh;
+    position: relative;
 }
 
 #signup_title{ /*제목*/
     margin : 30px 0;
-    font-weight: bold;
-    color : black;;
-    font-size : 17px;
+   
+    color : black;
+    font-size: 2em;
+}
+
+#new_userinfo {
+
+    height : 50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #new_userinfo > input{ /*input css*/
     display : block;
-    height: 39px;
-    margin-top: -2px;
+    height: 52px;
+    margin : 10px 0;
+    width : 70%;
     border: 1px solid #ccc;
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 
-    ime-mode: inactive;
-    line-height: 39px;
+#new_userinfo > input:focus{
+    
+    border:2px solid #007C89;
 }
 
 #signup_event{ /*회원가입 버튼 wrap*/
-    margin : 30px 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   height  :30%;
+   bottom : 0;
 }
 
 #signup_event button{ /*회원가입 버튼 css*/
     position: relative;
-    width: 48%;
+    width: 30%;
+    margin : 0 5px;
     height: 40px;
-    background-color: ghostwhite;
-    border: 2px solid #D5D5D5;
-    vertical-align: top;
+
+    background: #ffe500;
     cursor: pointer;
-    font-weight: 900;
+
+    border:none;
+    padding: 0;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.signup_cancel_btn{ /*회원가입 취소 btn css */
+    position: absolute;
+    right : 0;
+    top : 0;
+
+    background-image: url("https://img.icons8.com/pastel-glyph/2x/cancel.png") no-repeat;
+    border: none;
+    cursor:pointer;
+    width : 50px;
+    height : 50px;
+    
 }
 
 #login{ /*로그인 다이얼로그*/

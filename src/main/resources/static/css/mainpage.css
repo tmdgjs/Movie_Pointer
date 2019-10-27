@@ -31,11 +31,12 @@
 .main_poster_box{ /*각각의 포스터 박스(이름 + 포스터)*/
 
     margin : 5px 5px;
-    border-bottom:2px solid #dedede;
+    
     width : 18%;
     height :40%;
     display:block;
-
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
     position: relative;
     overflow-x: hidden;
 }
@@ -64,42 +65,47 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    
 
 }
 
 
 
 #main_title{ /*현재 상영작 div*/
-    display: block;
-    width: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 150px;
     height: 50px;
-    margin-left: 1px;
-    background: #231f20;
-    color: #cdc197;
-    font-size: 16px;
-    line-height: 50px;
-    text-align: center;
+    
+    border :  1px solid #ff382e;
+    font-size: 14px;
+    box-sizing: border-box;
+    color:#ff382e;
+    
     font-weight: bold;
-    border-radius: 15px;
-
-}
-
-#main_poster_page{ /*버튼 wrap*/
-
-    margin-top : 15px;
-    background:none;
-    border:none;
+    font-family: 'Nanum Gothic', sans-serif;
 
 }
 
 .main_poster_page_btn{ /*버튼*/
-    background-color:#CDCFCE;
-    border-radius: 5px;
+    
     width:30px;
     height:30px;
-    font-weight: bold;
     margin-bottom : 15px;
-    color:#000000;
+    cursor: pointer;
+    margin: 0 5px;
+    border:none;
+    border-radius: 50%;
+    background: #ff382e;
+    color: #fff;
+
+}
+
+.main_poster_page_btn:hover{
+
+    text-decoration-line: underline;
 }
 
 

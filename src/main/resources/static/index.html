@@ -35,7 +35,7 @@
 
 <body>
     <div id="movie_pointer">
-
+<!--
         <div id="navi">
             <nav>
 
@@ -44,12 +44,12 @@
                 </ul>
 
                 <ul id="top10" class="menu">
-                    <!--movietop10()-->
+                    /*movietop10()*/
                 </ul>
 
             </nav>
         </div>
-
+    -->
         <div id="page_Home">
             <div id="main_information">
 
@@ -161,6 +161,10 @@
             <div id="login">
                 <div id="login_dialog" >
 
+                    <button class="cancel_btn"onclick="cancel_login()">
+                            <img src="image/cancel_icon.png">
+                    </button>
+
                     <div id="login_title">Login</div>
 
                     <div id="idandpw" >
@@ -169,8 +173,8 @@
                     </div>
 
                     <div id="login_event_area">
-                        <button onclick="userlogin()">로그인</button>
-                        <button onclick="cancel_login()">취소</button>
+                        <button onclick="userlogin()">Login</button>
+                       
                     </div>
                 </div>
             </div>
@@ -180,7 +184,9 @@
             <div id="signup">
                 <div id="signup_dialog">
                     
-                    <button class="signup_cancel_btn" onclick="cancel_users()"></button>
+                    <button class="cancel_btn" onclick="cancel_users()">
+                        <img src="image/cancel_icon.png">
+                    </button>
                     <div id="signup_title">Join</div>
 
                     <div id="new_userinfo">

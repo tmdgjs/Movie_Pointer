@@ -1,8 +1,8 @@
 #main_information{ /*메인 화면*/
-    width : 70vw;
+    width : 85vw;
     height: 100vh;
-    margin-left: 15vw;
-    box-shadow: 10px 0 15px -10px inset #777777;
+    
+    /*box-shadow: 10px 0 15px -10px inset #777777;*/
     background:#ffffff;
     overflow-y:auto;
     font-family: AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;

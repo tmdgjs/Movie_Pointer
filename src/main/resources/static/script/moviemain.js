@@ -71,6 +71,7 @@ async function moviechart(id){ //무비차트
             $(`#main_poster_box_${i} > a`).html(`${movielist[i].movie_name}`);
             $(`#main_poster_box_${i} > img`).css(`display`,`flex`);
             $(`#main_poster_box_${i} > a`).css(`display`,`flex`);
+            $(`#main_poster_box_${i} > a`).attr("title",`${movielist[i].movie_name}`);
         }else {
             $(`#main_poster_box_${i} > img`).css(`display`,`none`);
             $(`#main_poster_box_${i} > a`).css(`display`,`none`);

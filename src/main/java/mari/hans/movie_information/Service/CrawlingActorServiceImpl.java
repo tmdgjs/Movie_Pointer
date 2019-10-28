@@ -57,7 +57,7 @@ public class CrawlingActorServiceImpl implements CrawlingActorService {
                 if(i < 3 ){
                     actor_jobs = "감독";
                 }else{
-                    actor_jobs = "역할 없음";
+                    actor_jobs = "";
                 }
 
             }

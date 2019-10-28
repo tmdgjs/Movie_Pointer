@@ -7,6 +7,18 @@ body
 
 }
 
+.back_btn{
+    width : 100px;
+    height : 70px;
+    border:none;
+    cursor: pointer;
+
+}
+
+.back_btn:hover{
+    transform: scale(1.1,1.1);
+}
+
 #movie_information{
 
     width : 85vw;

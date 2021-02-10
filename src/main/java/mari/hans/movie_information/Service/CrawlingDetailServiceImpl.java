@@ -112,7 +112,7 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
 
         for(int i = 0; i <data.length;i++) {
 
-            if(data[i].equals("(감독)") == true) {
+            if(data[i].equals("(감독)") || data[i].equals("감독")) {
 
                 if(data[data.length-1].contains("위")) {
                     detail_lst.add(data[data.length-1]);
@@ -152,7 +152,11 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
 
 
                     movies_d.add(detailinfo(titles, i));
+                    System.out.println(titles);
+                    System.out.println(i);
                 }
+
+
 
                  this.movieDetailRepository.saveAll(movies_d);
 

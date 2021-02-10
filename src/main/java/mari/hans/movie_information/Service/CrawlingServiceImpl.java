@@ -81,6 +81,7 @@ public class CrawlingServiceImpl implements CrawlingService {
 
                     movies.add(mv);
 
+
                 }
 
                 this.movieRepository.saveAll(movies);

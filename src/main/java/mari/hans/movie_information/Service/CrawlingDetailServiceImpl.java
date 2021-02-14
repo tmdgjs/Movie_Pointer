@@ -152,11 +152,7 @@ public class CrawlingDetailServiceImpl implements CrawlingDetailService {
 
 
                     movies_d.add(detailinfo(titles, i));
-                    System.out.println(titles);
-                    System.out.println(i);
                 }
-
-
 
                  this.movieDetailRepository.saveAll(movies_d);
 

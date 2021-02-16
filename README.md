@@ -13,6 +13,7 @@
 - Backend
   - Java
   - SpringBoot
+  - MySQL
 
 
 

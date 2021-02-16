@@ -1,5 +1,5 @@
 ﻿# 상영 중인 영화 정보
-![MoviePointerTitle](D:\dev\Movie_Pointer\Image\MoviePointerTitle.png)현재 영화 상영작을 확인할 수 있습니다.
+![MoviePointerTitle](https://github.com/tmdgjs/Movie_Pointer/blob/master/Image/MoviePointerTitle.png)현재 영화 상영작을 확인할 수 있습니다.
 
 
 
